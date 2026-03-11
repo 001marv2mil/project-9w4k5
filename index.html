@@ -3,54 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tampa Directory</title>
+  <title>PetOS Directory</title>
   <style>
-    :root{--bg:#0b0f1a;--card:#121a2b;--text:#f3f5ff;--muted:#a5b0cc;--brand:#4da3ff;--pill:#1f2b45}
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#0a0f1c,#0b0f1a);color:var(--text)}
-    .wrap{max-width:1000px;margin:0 auto;padding:28px 16px 48px}
-    h1{margin:0 0 8px;font-size:34px} p.sub{margin:0 0 20px;color:var(--muted)}
-    .toolbar{display:grid;grid-template-columns:1fr 220px;gap:10px;margin-bottom:18px}
-    input,select{background:#0f1627;border:1px solid #283553;color:#fff;padding:12px;border-radius:10px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-    .card{background:var(--card);border:1px solid #233150;border-radius:14px;padding:14px}
-    .name{font-weight:700;margin-bottom:6px}.meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-    .pill{font-size:12px;background:var(--pill);padding:4px 8px;border-radius:999px;color:#d5e3ff}
-    a.btn{display:inline-block;margin-top:10px;text-decoration:none;background:var(--brand);color:#021024;padding:8px 12px;border-radius:8px;font-weight:700}
+    :root{--bg:#0f1411;--panel:#162019;--panel2:#1d2a21;--text:#eef7ef;--muted:#aac1af;--brand:#7ee081;--chip:#243528}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#0f1411,#101813);color:var(--text)}
+    .wrap{max-width:1080px;margin:0 auto;padding:28px 16px 54px}
+    h1{margin:0 0 8px;font-size:34px}.sub{color:var(--muted);margin:0 0 18px}
+    .toolbar{display:grid;grid-template-columns:1fr 220px 220px;gap:10px;margin-bottom:18px}
+    input,select{background:#0f1912;color:#fff;border:1px solid #2f4a35;border-radius:10px;padding:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+    .card{background:var(--panel);border:1px solid #304637;border-radius:14px;padding:14px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:8px}.name{font-weight:700}
+    .chip{background:var(--chip);font-size:12px;padding:4px 8px;border-radius:999px;color:#cae7cf}
+    .meta{color:var(--muted);font-size:14px;margin:8px 0 10px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    a.btn{display:inline-block;text-decoration:none;background:var(--brand);color:#0a160d;padding:8px 12px;border-radius:8px;font-weight:700}
+    a.ghost{background:#223425;color:#d7efdb}
+    @media(max-width:860px){.toolbar{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Tampa Local Directory</h1>
-    <p class="sub">Search and filter local spots. Built live on Vercel.</p>
+    <h1>PetOS Care Directory</h1>
+    <p class="sub">Find vets, grooming, boarding, training, and emergency pet care near you.</p>
 
     <div class="toolbar">
-      <input id="q" placeholder="Search by name or area..." />
-      <select id="cat">
-        <option value="all">All Categories</option>
-      </select>
+      <input id="q" placeholder="Search name, city, or services..." />
+      <select id="type"><option value="all">All Types</option></select>
+      <select id="city"><option value="all">All Cities</option></select>
     </div>
 
     <div id="grid" class="grid"></div>
   </div>
 
 <script>
-const data=[
- {name:'Armature Works',category:'Food Hall',area:'Tampa Heights',tag:'Popular',url:'https://www.armatureworks.com'},
- {name:'Sparkman Wharf',category:'Food Hall',area:'Downtown',tag:'Waterfront',url:'https://sparkmanwharf.com'},
- {name:'Oxford Exchange',category:'Cafe',area:'Uptown',tag:'Brunch',url:'https://oxfordexchange.com'},
- {name:'Hyde Park Village',category:'Shopping',area:'South Tampa',tag:'Lifestyle',url:'https://hydeparkvillage.com'},
- {name:'Ybor City Saturday Market',category:'Market',area:'Ybor',tag:'Weekend',url:'https://www.ybormarket.com'},
- {name:'Tampa Theatre',category:'Entertainment',area:'Downtown',tag:'Historic',url:'https://tampatheatre.org'}
+const places=[
+ {name:'Bay Paws Veterinary Clinic',type:'Vet',city:'Tampa',phone:'(813) 555-1041',hours:'Mon-Sat 8a-6p',services:['wellness','vaccines','surgery'],url:'#',maps:'#'},
+ {name:'Paws & Suds Grooming',type:'Groomer',city:'Tampa',phone:'(813) 555-2207',hours:'Tue-Sun 9a-5p',services:['bath','nail trim','deshedding'],url:'#',maps:'#'},
+ {name:'Happy Tails Boarding',type:'Boarding',city:'St. Pete',phone:'(727) 555-3114',hours:'Daily 7a-8p',services:['overnight','daycare','playtime'],url:'#',maps:'#'},
+ {name:'Clearwater K9 Academy',type:'Training',city:'Clearwater',phone:'(727) 555-7622',hours:'Mon-Fri 10a-7p',services:['obedience','puppy class','behavior'],url:'#',maps:'#'},
+ {name:'24/7 Pet Emergency Center',type:'Emergency',city:'Tampa',phone:'(813) 555-9000',hours:'Open 24 hours',services:['emergency','critical care'],url:'#',maps:'#'},
+ {name:'Suncoast Mobile Vet',type:'Vet',city:'Brandon',phone:'(813) 555-4428',hours:'Mon-Fri 9a-5p',services:['home visit','wellness','senior care'],url:'#',maps:'#'}
 ];
-const q=document.getElementById('q'),cat=document.getElementById('cat'),grid=document.getElementById('grid');
-[...new Set(data.map(x=>x.category))].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;cat.appendChild(o);});
-function render(){
- const text=q.value.toLowerCase().trim(), c=cat.value;
- const list=data.filter(x=>(c==='all'||x.category===c)&&(`${x.name} ${x.area}`.toLowerCase().includes(text)));
- grid.innerHTML=list.map(x=>`<div class='card'><div class='row'><div class='name'>${x.name}</div><span class='pill'>${x.tag}</span></div><div class='meta'>${x.category} · ${x.area}</div><a class='btn' target='_blank' href='${x.url}'>Visit</a></div>`).join('') || `<p style='color:#a5b0cc'>No results found.</p>`;
+
+const q=document.getElementById('q'), type=document.getElementById('type'), city=document.getElementById('city'), grid=document.getElementById('grid');
+const unique=(arr)=>[...new Set(arr)].sort();
+unique(places.map(p=>p.type)).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;type.appendChild(o);});
+unique(places.map(p=>p.city)).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;city.appendChild(o);});
+
+function card(p){
+ return `<div class='card'>
+  <div class='row'><div class='name'>${p.name}</div><span class='chip'>${p.type}</span></div>
+  <div class='meta'>${p.city} · ${p.hours}<br/>${p.phone}</div>
+  <div class='meta'>Services: ${p.services.join(', ')}</div>
+  <div class='actions'>
+    <a class='btn' href='${p.url}' target='_blank'>Profile</a>
+    <a class='btn ghost' href='${p.maps}' target='_blank'>Directions</a>
+  </div>
+ </div>`;
 }
-q.addEventListener('input',render);cat.addEventListener('change',render);render();
+
+function render(){
+ const text=q.value.toLowerCase().trim(), t=type.value, c=city.value;
+ const out=places.filter(p=>{
+  const inText=`${p.name} ${p.city} ${p.services.join(' ')}`.toLowerCase().includes(text);
+  const inType=t==='all'||p.type===t;
+  const inCity=c==='all'||p.city===c;
+  return inText&&inType&&inCity;
+ });
+ grid.innerHTML=out.length?out.map(card).join(''):`<p style='color:#aac1af'>No providers match your filters.</p>`;
+}
+q.addEventListener('input',render); type.addEventListener('change',render); city.addEventListener('change',render); render();
 </script>
 </body>
 </html>
