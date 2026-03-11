@@ -3,10 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>project-9w4k5</title>
+  <title>Tampa Directory</title>
+  <style>
+    :root{--bg:#0b0f1a;--card:#121a2b;--text:#f3f5ff;--muted:#a5b0cc;--brand:#4da3ff;--pill:#1f2b45}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#0a0f1c,#0b0f1a);color:var(--text)}
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 16px 48px}
+    h1{margin:0 0 8px;font-size:34px} p.sub{margin:0 0 20px;color:var(--muted)}
+    .toolbar{display:grid;grid-template-columns:1fr 220px;gap:10px;margin-bottom:18px}
+    input,select{background:#0f1627;border:1px solid #283553;color:#fff;padding:12px;border-radius:10px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+    .card{background:var(--card);border:1px solid #233150;border-radius:14px;padding:14px}
+    .name{font-weight:700;margin-bottom:6px}.meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .pill{font-size:12px;background:var(--pill);padding:4px 8px;border-radius:999px;color:#d5e3ff}
+    a.btn{display:inline-block;margin-top:10px;text-decoration:none;background:var(--brand);color:#021024;padding:8px 12px;border-radius:8px;font-weight:700}
+  </style>
 </head>
 <body>
-  <h1>Deployment Live</h1>
-  <p>Vercel + GitHub connection is working for project-9w4k5.</p>
+  <div class="wrap">
+    <h1>Tampa Local Directory</h1>
+    <p class="sub">Search and filter local spots. Built live on Vercel.</p>
+
+    <div class="toolbar">
+      <input id="q" placeholder="Search by name or area..." />
+      <select id="cat">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </div>
+
+<script>
+const data=[
+ {name:'Armature Works',category:'Food Hall',area:'Tampa Heights',tag:'Popular',url:'https://www.armatureworks.com'},
+ {name:'Sparkman Wharf',category:'Food Hall',area:'Downtown',tag:'Waterfront',url:'https://sparkmanwharf.com'},
+ {name:'Oxford Exchange',category:'Cafe',area:'Uptown',tag:'Brunch',url:'https://oxfordexchange.com'},
+ {name:'Hyde Park Village',category:'Shopping',area:'South Tampa',tag:'Lifestyle',url:'https://hydeparkvillage.com'},
+ {name:'Ybor City Saturday Market',category:'Market',area:'Ybor',tag:'Weekend',url:'https://www.ybormarket.com'},
+ {name:'Tampa Theatre',category:'Entertainment',area:'Downtown',tag:'Historic',url:'https://tampatheatre.org'}
+];
+const q=document.getElementById('q'),cat=document.getElementById('cat'),grid=document.getElementById('grid');
+[...new Set(data.map(x=>x.category))].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;cat.appendChild(o);});
+function render(){
+ const text=q.value.toLowerCase().trim(), c=cat.value;
+ const list=data.filter(x=>(c==='all'||x.category===c)&&(`${x.name} ${x.area}`.toLowerCase().includes(text)));
+ grid.innerHTML=list.map(x=>`<div class='card'><div class='row'><div class='name'>${x.name}</div><span class='pill'>${x.tag}</span></div><div class='meta'>${x.category} · ${x.area}</div><a class='btn' target='_blank' href='${x.url}'>Visit</a></div>`).join('') || `<p style='color:#a5b0cc'>No results found.</p>`;
+}
+q.addEventListener('input',render);cat.addEventListener('change',render);render();
+</script>
 </body>
 </html>
