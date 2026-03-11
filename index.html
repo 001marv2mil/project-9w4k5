@@ -1,53 +1,24 @@
 <!doctype html>
-<html lang='en'>
-<head>
-<meta charset='UTF-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/>
-<title>PetOS Directory</title>
+<html lang='en'><head><meta charset='UTF-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/><title>PetOS Directory</title>
 <style>
-:root{--green:#118a55;--green2:#0f6f46;--bg:#eef2f5;--line:#d8dde4;--text:#1f2a37}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.container{max-width:1160px;margin:0 auto;padding:0 16px}
-.top{background:linear-gradient(180deg,#0e6b45,#0b5b3a);color:#fff;border-bottom:1px solid #ffffff33}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:40px;font-weight:800;letter-spacing:.3px}
-.menu{display:flex;gap:34px;font-weight:600;opacity:.95}.menu a{color:#fff;text-decoration:none}
-.btn{border:1px solid #ffffff55;background:#ffffff1a;color:#fff;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none}
-.hero{background:radial-gradient(circle at 70% 15%,#7abf95 0%,#2c8c60 36%,#0f6a44 100%);color:#fff;padding:58px 0 36px;box-shadow:inset 0 -1px 0 #ffffff30}
-.hero h1{font-size:64px;line-height:1.05;margin:0 0 12px;text-align:center;font-family:Georgia,serif}
-.hero p{font-size:32px;text-align:center;margin:0 0 28px;opacity:.96;font-family:Georgia,serif}
-.search{max-width:960px;margin:0 auto;background:#fff;border:1px solid #d5dce5;border-radius:14px;padding:14px;display:grid;grid-template-columns:1.2fr 1.4fr 1fr .8fr;gap:10px;box-shadow:0 12px 24px #0000001a}
-.sel,input{height:56px;border:1px solid #d8dee8;border-radius:8px;padding:0 14px;font-size:24px;background:#fff}
-.urgent{height:56px;border:1px solid #d8dee8;border-radius:8px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:25px;color:#4b5563}
-.search button{height:56px;border:none;border-radius:8px;background:var(--green);color:#fff;font-size:33px;font-weight:800}
-.trust{display:flex;gap:28px;justify-content:center;padding:14px 0 4px;font-size:25px;color:#415065;background:#f3f6f9}
-.section{padding:28px 0}.title{display:flex;align-items:center;gap:16px;color:#253449;font-size:44px;font-weight:800;justify-content:center}.title:before,.title:after{content:'';height:1px;background:#cfd6df;flex:1;max-width:360px}
-.grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 18px;text-align:center;box-shadow:0 1px 2px #0000000b}.cat i{font-size:54px;display:block;margin-bottom:10px}.cat b{font-size:39px}
-.cards{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}.img{height:210px;background:linear-gradient(135deg,#a7d8bd,#7fb692)}
-.body{padding:14px}.name{font-size:37px;font-weight:800;margin-bottom:6px}.meta{font-size:27px;color:#5b677a;margin-bottom:8px}.rating{font-size:25px;color:#f59e0b;margin-bottom:8px}
-.view{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:24px;font-weight:700}
-.callout{margin:24px 0 12px;background:linear-gradient(180deg,#0e6b45,#0b5b3a);border-radius:14px;padding:28px 34px;color:#fff;display:flex;justify-content:space-between;align-items:center}
-.callout h3{margin:0;font-size:52px;font-family:Georgia,serif}.callout p{margin:8px 0 0;font-size:28px;opacity:.95}.danger{background:#e74c3c;color:#fff;border:none;border-radius:10px;padding:14px 24px;font-size:35px;font-weight:800}
-@media(max-width:1100px){.menu{display:none}.search{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<header class='top'><div class='container nav'><div class='logo'>🐾 PetOS</div><nav class='menu'>
-<a href='#'>Find Care</a><a href='#'>List Your Business</a><a href='#'>Resources</a><a href='#'>Pet Blog</a><a href='#'>Sign In</a></nav><a class='btn' href='#'>Find Care</a></div></header>
-<section class='hero'><div class='container'>
-<h1>Your Trusted Partner in Pet Care</h1>
-<p>Easily find the best local vets, groomers, boarding, and more for your furry family members.</p>
-<div class='search'><select class='sel'><option>Select Service</option></select><input placeholder='Enter City or Zip Code'/><label class='urgent'><input type='checkbox'/>Urgent Care</label><button>Search</button></div>
-</div></section>
-<div class='trust'><span>✅ Verified Pet Professionals</span><span>📍 Serving Your Community</span><span>⭐ Trusted by Thousands of Pet Owners</span><span>🆘 24/7 Emergency Support</span></div>
-<main class='container'>
-<section class='section'><div class='title'>Browse Pet Services</div><div class='grid'>
-<div class='cat'><i>🩺</i><b>Veterinarians</b></div><div class='cat'><i>➕</i><b>Emergency Vets</b></div><div class='cat'><i>✂️</i><b>Groomers</b></div><div class='cat'><i>🏠</i><b>Pet Boarding</b></div>
-<div class='cat'><i>🎾</i><b>Pet Daycare</b></div><div class='cat'><i>🎓</i><b>Pet Trainers</b></div><div class='cat'><i>💊</i><b>Pet Pharmacy</b></div><div class='cat'><i>🐕</i><b>More Services</b></div>
-</div></section>
-<section class='section'><div class='title'>Featured Pet Care Providers</div><div class='cards'>
-<div class='card'><div class='img'></div><div class='body'><div class='name'>Central Texas Vet Clinic ✅</div><div class='meta'>Veterinary Care · Austin, TX</div><div class='rating'>★★★★★ (230 Reviews)</div><a class='view' href='#'>View Profile</a></div></div>
-<div class='card'><div class='img'></div><div class='body'><div class='name'>Paws & Play Grooming ✅</div><div class='meta'>Grooming · Austin, TX</div><div class='rating'>★★★★★ (166 Reviews)</div><a class='view' href='#'>View Profile</a></div></div>
-<div class='card'><div class='img'></div><div class='body'><div class='name'>Hillside Pet Resort ✅</div><div class='meta'>Boarding · Austin, TX</div><div class='rating'>★★★★★ (155 Reviews)</div><a class='view' href='#'>View Profile</a></div></div>
-</div></section>
-<section class='callout'><div><h3>Urgent Pet Care?</h3><p>Need help fast? Find 24/7 emergency vet clinics near you.</p></div><button class='danger'>Get Emergency Help</button></section>
-</main>
-</body></html>
+:root{--g:#118a55;--g2:#0b5b3a;--bg:#eef2f5;--line:#d8dde4}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Arial}
+.container{max-width:1160px;margin:0 auto;padding:0 16px}.top{background:linear-gradient(180deg,#0e6b45,#0b5b3a);color:#fff}.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:36px;font-weight:800}.menu{display:flex;gap:26px}.menu a{color:#fff;text-decoration:none}.btn{border:1px solid #ffffff66;background:#ffffff1a;color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none}
+.hero{background:radial-gradient(circle at 70% 15%,#7abf95 0,#2c8c60 36%,#0f6a44 100%);color:#fff;padding:52px 0 30px}.hero h1{font-size:56px;text-align:center;margin:0 0 10px}.hero p{font-size:26px;text-align:center;margin:0 0 20px}
+.search{max-width:980px;margin:0 auto;background:#fff;border:1px solid #d5dce5;border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px}
+select,input{height:52px;border:1px solid #d8dee8;border-radius:8px;padding:0 12px;font-size:18px}.search button{height:52px;border:0;border-radius:8px;background:var(--g);color:#fff;font-weight:700;padding:0 18px}
+.note{padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:10px;margin:14px auto;max-width:980px}
+</style></head><body>
+<header class='top'><div class='container nav'><div class='logo'>🐾 PetOS</div><nav class='menu'><a href='#'>Find Care</a><a href='#'>List Your Business</a><a href='#'>Resources</a><a href='#'>Pet Blog</a><a href='#'>Sign In</a></nav><a class='btn' href='#'>Find Care</a></div></header>
+<section class='hero'><div class='container'><h1>Your Trusted Partner in Pet Care</h1><p>Now searchable by all U.S. states and major cities.</p>
+<div class='search'><select id='service'><option>Select Service</option><option>Veterinarian</option><option>Emergency Vet</option><option>Groomer</option><option>Boarding</option><option>Daycare</option><option>Trainer</option><option>Pharmacy</option></select><select id='state'></select><input id='city' list='cities' placeholder='Enter City'/><button>Search</button></div><datalist id='cities'></datalist>
+<div class='note' id='count'></div></div></section>
+<script>
+const statesAndCities={
+'Alabama':['Birmingham','Montgomery','Mobile'],'Alaska':['Anchorage','Fairbanks','Juneau'],'Arizona':['Phoenix','Tucson','Mesa'],'Arkansas':['Little Rock','Fayetteville','Fort Smith'],'California':['Los Angeles','San Diego','San Jose'],'Colorado':['Denver','Colorado Springs','Aurora'],'Connecticut':['Bridgeport','New Haven','Stamford'],'Delaware':['Wilmington','Dover','Newark'],'Florida':['Jacksonville','Miami','Tampa'],'Georgia':['Atlanta','Augusta','Columbus'],'Hawaii':['Honolulu','Hilo','Kailua'],'Idaho':['Boise','Meridian','Nampa'],'Illinois':['Chicago','Aurora','Naperville'],'Indiana':['Indianapolis','Fort Wayne','Evansville'],'Iowa':['Des Moines','Cedar Rapids','Davenport'],'Kansas':['Wichita','Overland Park','Kansas City'],'Kentucky':['Louisville','Lexington','Bowling Green'],'Louisiana':['New Orleans','Baton Rouge','Shreveport'],'Maine':['Portland','Lewiston','Bangor'],'Maryland':['Baltimore','Frederick','Rockville'],'Massachusetts':['Boston','Worcester','Springfield'],'Michigan':['Detroit','Grand Rapids','Warren'],'Minnesota':['Minneapolis','Saint Paul','Rochester'],'Mississippi':['Jackson','Gulfport','Southaven'],'Missouri':['Kansas City','St. Louis','Springfield'],'Montana':['Billings','Missoula','Great Falls'],'Nebraska':['Omaha','Lincoln','Bellevue'],'Nevada':['Las Vegas','Henderson','Reno'],'New Hampshire':['Manchester','Nashua','Concord'],'New Jersey':['Newark','Jersey City','Paterson'],'New Mexico':['Albuquerque','Las Cruces','Rio Rancho'],'New York':['New York City','Buffalo','Rochester'],'North Carolina':['Charlotte','Raleigh','Greensboro'],'North Dakota':['Fargo','Bismarck','Grand Forks'],'Ohio':['Columbus','Cleveland','Cincinnati'],'Oklahoma':['Oklahoma City','Tulsa','Norman'],'Oregon':['Portland','Eugene','Salem'],'Pennsylvania':['Philadelphia','Pittsburgh','Allentown'],'Rhode Island':['Providence','Warwick','Cranston'],'South Carolina':['Charleston','Columbia','North Charleston'],'South Dakota':['Sioux Falls','Rapid City','Aberdeen'],'Tennessee':['Nashville','Memphis','Knoxville'],'Texas':['Houston','San Antonio','Dallas'],'Utah':['Salt Lake City','West Valley City','Provo'],'Vermont':['Burlington','South Burlington','Rutland'],'Virginia':['Virginia Beach','Norfolk','Chesapeake'],'Washington':['Seattle','Spokane','Tacoma'],'West Virginia':['Charleston','Huntington','Morgantown'],'Wisconsin':['Milwaukee','Madison','Green Bay'],'Wyoming':['Cheyenne','Casper','Laramie']
+};
+const stateSel=document.getElementById('state'), cityList=document.getElementById('cities'), cityInput=document.getElementById('city');
+stateSel.innerHTML='<option value="">Select State</option>'+Object.keys(statesAndCities).map(s=>`<option>${s}</option>`).join('');
+function fillCities(state){const cities=state?statesAndCities[state]:Object.values(statesAndCities).flat();cityList.innerHTML=cities.map(c=>`<option value="${c}"></option>`).join('');document.getElementById('count').textContent=`Loaded ${Object.keys(statesAndCities).length} states and ${Object.values(statesAndCities).flat().length} major cities.`}
+stateSel.addEventListener('change',()=>{fillCities(stateSel.value);cityInput.value='';});fillCities('');
+</script></body></html>
